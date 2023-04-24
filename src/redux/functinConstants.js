@@ -14,12 +14,12 @@ export const hendleGetContactsFulfilled = (state, { payload }) => {
 };
 export const hendleCreateContactsFulfilled = (state, { payload }) => {
   state.contacts.isLoading = false;
-  state.contacts.items.push(payload);
   state.contacts.error = null;
+  state.contacts.items.push(payload);
 };
 export const hendleDeleteContactsFulfilled = (state, { payload }) => {
   state.contacts.isLoading = false;
-  const index = state.contacts.items.findIndex(({ id }) => id === payload);
-  state.contacts.items.splice(index, 1);
   state.contacts.error = null;
+  const index = state.contacts.items.findIndex(({ id }) => id === payload.id);
+  state.contacts.items.splice(index, 1);
 };

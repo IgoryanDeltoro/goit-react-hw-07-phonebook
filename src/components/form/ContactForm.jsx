@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import Form from './form/Form';
-import { getContacts } from 'redux/selectors';
-import { createContactsThunk } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
+import { createContactThunk } from 'redux/operations';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleChange = event => {
@@ -33,7 +33,7 @@ const ContactForm = () => {
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (index === -1) {
-      dispatch(createContactsThunk({ name, phone }));
+      dispatch(createContactThunk({ name, phone }));
       reset();
       return;
     }

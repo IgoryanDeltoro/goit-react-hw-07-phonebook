@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from '../contactItems/ContactsItem.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteContactsThunk } from 'redux/operations';
+import { deleteContactThunk } from 'redux/operations';
 
 const ContactItems = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const ContactItems = ({ id, name, number }) => {
       <td className={css.buttonBox}>
         <button
           className={css.button}
-          onClick={() => dispatch(deleteContactsThunk(id))}
+          onClick={() => dispatch(deleteContactThunk(id))}
         >
           Delete
         </button>
